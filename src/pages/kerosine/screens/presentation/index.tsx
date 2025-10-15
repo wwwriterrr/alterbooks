@@ -5,9 +5,11 @@ import img3 from '../../../../assets/books/kerosine/10.png';
 
 export const KerosinePresentation = () => {
     return (
-        <div className={styles.wrap}>
-            <img className={styles['image-1']} src={img1} alt="Kerosine Book image" />
-            <img className={styles['image-2']} src={img2} alt="Title of the book" />
+        <div className={styles.screen}>
+            <div className={styles.wrap}>
+                <img className={styles['image-1']} src={img1} alt="Kerosine Book image" />
+                <img className={styles['image-2']} src={img2} alt="Title of the book" />
+            </div>
             <img className={styles['image-3']} src={img3} alt="Beetle zzz" />
         </div>
     )

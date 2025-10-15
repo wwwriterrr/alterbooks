@@ -2,6 +2,10 @@ import { Navigation } from '../../components/nav';
 import styles from './styles.module.css';
 import './index.css';
 import { KerosinePresentation } from './screens/presentation';
+import { KerosineAbout } from './screens/about';
+import { KerosineAuthor } from './screens/author';
+import { KerosineReviews } from './screens/reviews';
+import { KerosineBuy } from './screens/buy';
 
 export const KerosineBook = () => {
     const nav = [
@@ -14,8 +18,13 @@ export const KerosineBook = () => {
 
     return (
         <div className={styles.wrap}>
-            <Navigation items={nav} />
+            <Navigation className={styles.nav_top} items={nav} />
             <KerosinePresentation />
+            <KerosineAbout />
+            <KerosineAuthor />
+            <KerosineReviews />
+            <KerosineBuy />
+            <Navigation className={styles.nav_bottom} items={nav} />
         </div>
     )
 }

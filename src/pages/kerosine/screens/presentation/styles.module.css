@@ -1,23 +1,29 @@
+.screen{
+    position: relative;
+    z-index: 3;
+}
+
 .wrap{
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template: 'left right' auto / 1fr 550px;
     gap: 1vw;
+    width: var(--wrap-size);
+    margin: 0 auto 0 auto;
 }
 
 .image-1{
+    grid-area: left;
     position: relative;
     transform: rotate(-4deg);
-    width: 40vw;
-    max-width: 814px;
+    width: 100%;
 }
 
 .image-2{
+    grid-area: right;
     position: relative;
-    top: -6vw;
-    width: 26vw;
-    max-width: 485px;
+    top: 330px;
+    width: 100%;
     transform: rotate(14deg);
 }
 

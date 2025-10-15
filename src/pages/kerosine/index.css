@@ -7,9 +7,17 @@
     font-weight: normal;
 }
 
+@font-face {
+    font-family: 'Handelson Six_CYR';
+    src: local('Handelson Six_CYR'), 
+        url('/src/assets/books/kerosine/handelsonsix_cyr_six.otf') format('opentype');
+    font-weight: normal;
+}
+
 :root {
     --wrap-size: 1440px;
     --main-font: 'Rubik One', sans-serif;
+    --title-font: 'Handelson Six_CYR';
 }
 
 body {
