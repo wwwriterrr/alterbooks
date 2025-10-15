@@ -11,7 +11,15 @@
 }
 
 .logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.logo a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .items{
@@ -26,4 +34,21 @@
 
 .nav-item a{
 
+}
+
+.menuBtn{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+}
+
+@media screen and (max-width: 1024px) {
+    .items{
+        display: none;
+    }
+
+    .menuBtn{
+        display: flex;
+    }
 }

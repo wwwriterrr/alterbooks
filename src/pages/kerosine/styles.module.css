@@ -8,9 +8,23 @@
 }
 
 .nav_top{
-    margin: 0 0 100px 0;
+    margin: 0 auto 100px auto;
+    width: var(--wrap-size);
+    font-size: 34px;
+    font-family: var(--title-font);
+}
+
+.nav_top ul{
+    gap: 40px;
 }
 
 .nav_bottom{
-    margin: 100px 0 0 0;
+    margin: 100px auto 0 auto;
+    width: var(--wrap-size);
+    font-size: 34px;
+    font-family: var(--title-font);
+}
+
+.nav_bottom ul{
+    gap: 40px;
 }

@@ -3,5 +3,5 @@ export interface IIconProps {
     width?: string | number,
     height?: string | number,
     fill?: string,
-    strokeWidth: string | number,
+    strokeWidth?: string | number,
 }
