@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Rubik One';
+    src: local("Rubik One"),
+        local("Rubik One Regular"),
+        local("RubikOne-Regular"),
+        url('/src/assets/books/kerosine/RubikOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+:root {
+    --wrap-size: 1440px;
+    --main-font: 'Rubik One', sans-serif;
+}
+
+body {
+    font-family: var(--main-font);
+    font-size: 16px;
+    font-weight: normal;
+}

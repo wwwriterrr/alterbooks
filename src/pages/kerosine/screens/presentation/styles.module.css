@@ -1,0 +1,27 @@
+.wrap{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+}
+
+.image-1{
+    position: relative;
+    transform: rotate(-4deg);
+    width: 40vw;
+    max-width: 814px;
+}
+
+.image-2{
+    position: relative;
+    top: -6vw;
+    width: 26vw;
+    max-width: 485px;
+    transform: rotate(14deg);
+}
+
+.image-3{
+    position: absolute;
+
+}

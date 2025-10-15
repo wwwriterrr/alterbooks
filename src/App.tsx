@@ -1,15 +1,17 @@
 
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home/Home";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { type FC } from "react";
+import { KerosineBook } from "./pages/kerosine";
 
 export const App: FC = () => {
     return (
-        <div className="App font-sans">
+        <div id="app" className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Navigate to={"/kerosine/"} />} />
+                    <Route path="/kerosine/" element={<KerosineBook />} />
+                    <Route path="*" element={<div>404</div>} />
                 </Routes>
             </BrowserRouter>
         </div>

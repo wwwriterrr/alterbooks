@@ -1,0 +1,29 @@
+.wrap{
+    position: relative;
+    width: 100%;
+}
+
+.nav{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+
+}
+
+.items{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-item{
+
+}
+
+.nav-item a{
+
+}
