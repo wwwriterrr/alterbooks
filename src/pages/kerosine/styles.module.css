@@ -4,7 +4,7 @@
     padding: 100px 0 100px 0;
     overflow: hidden;
 
-    background-image: linear-gradient(180deg, #CDCDCD, #FFFFFF, #CDCDCD, #FFFFFF, #dedede);
+    background-image: linear-gradient(180deg, #CDCDCD, #FFFFFF, #CDCDCD, #FFFFFF, #dedede 95%);
 }
 
 .nav_top{
