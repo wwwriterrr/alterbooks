@@ -34,3 +34,11 @@
     font-size: 20px;
     line-height: 1.3em;
 }
+
+@media screen and (max-width: 900px) {
+    .wrap{
+        grid-template: 'left' auto 'right' auto / 1fr;
+        gap: 60px 0;
+        max-width: 500px;
+    }
+}

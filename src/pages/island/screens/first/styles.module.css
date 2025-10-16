@@ -39,3 +39,9 @@
     top: -4.5vw;
     /* max-width: 362px; */
 }
+
+@media screen and (max-width: 1560px) {
+    .book{
+        width: 40vw;
+    }
+}

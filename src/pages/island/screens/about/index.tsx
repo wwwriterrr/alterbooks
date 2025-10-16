@@ -28,7 +28,7 @@ const aboutAuthor = (<>
 
 export const IslandAbout = () => {
     return (
-        <div className={styles.screen}>
+        <div id="about" className={styles.screen}>
             <div className={styles.wrap}>
                 <div className={`${styles.text} ${styles.left}`}>
                     <h2 className={styles.title}>Об авторе</h2>

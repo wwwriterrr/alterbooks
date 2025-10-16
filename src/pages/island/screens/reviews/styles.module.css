@@ -29,3 +29,24 @@
 .review__content{
     line-height: 1.3em;
 }
+
+@media screen and (max-width: 1024px) {
+    .wrap{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .review{
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .review{
+        max-width: 100%;
+        width: 100%;
+    }
+}

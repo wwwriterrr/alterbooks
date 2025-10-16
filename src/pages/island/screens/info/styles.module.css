@@ -68,3 +68,63 @@
     object-fit: cover;
     object-position: center;
 }
+
+@media screen and (max-width: 1024px) {
+    .wrap{
+        gap: 30px;
+    }
+
+    .info{
+        font-size: 16px;
+        gap: 10px;
+    }
+
+    .book{
+        height: 304px;
+    }
+
+    .info__key{
+        font-size: 12px;
+    }
+
+    .info__buy{
+        margin-top: 20px;
+    }
+
+    .info__buy > a{
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .wrap{  
+        grid-template: 'left' auto 'right' auto / 1fr;
+        gap: 30px;
+    }
+
+    .book{
+        align-self: center;
+        justify-self: center;
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .info{
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+    }
+
+    .info__row{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info__buy{
+        align-items: center;
+        justify-content: center;
+    }
+}

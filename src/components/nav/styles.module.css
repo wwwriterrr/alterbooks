@@ -1,58 +1,100 @@
-.wrap{
+.wrap {
     position: relative;
     width: 100%;
 }
 
-.nav{
+.nav {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.logo a{
+.logo a {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.items{
+.items {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.after{
+.after {}
 
-}
-
-.nav-item{
+.nav-item {
     text-align: center;
 }
 
-.nav-item a{
+.nav-item a {}
 
-}
-
-.menuBtn{
+.menuBtn {
     display: none;
     align-items: center;
     justify-content: center;
     padding: 3px;
 }
 
+.nav.mob .menuBtn{
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}
+
+.nav_mob {
+    display: none;
+}
+
+.nav_mob {
+    display: flex;
+    z-index: 998;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nav_mob__overlay {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, #000000c4 200px, #0000004a);
+    backdrop-filter: blur(5px);
+}
+
+.nav_mob__items {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 80px 0 30px;
+}
+
+.nav_mob__item{
+
+}
+
 @media screen and (max-width: 1024px) {
-    .items{
+    .items {
         display: none;
     }
 
-    .menuBtn{
+    .menuBtn {
         display: flex;
+        position: relative;
+        z-index: 999;
     }
 }

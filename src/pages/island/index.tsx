@@ -8,8 +8,8 @@ import { IslandInfo } from './screens/info';
 
 export const IslandBook = () => {
     const navItems = [
-        { label: 'Главная', url: '#main' },
-        { label: (<>Знакомство<br />с книгой</>), url: '#book' },
+        { label: 'Главная', url: '#first' },
+        { label: (<>Знакомство<br />с книгой</>), url: '#about' },
         { label: 'Отзывы', url: '#reviews' },
         { label: 'Презентация', url: '' },
     ]

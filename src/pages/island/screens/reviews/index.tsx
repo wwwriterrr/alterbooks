@@ -1,4 +1,5 @@
-import styles from './styles.module.css'
+import styles from './styles.module.css';
+import { motion } from 'motion/react';
 
 type TReview = {
     name: string | JSX.Element,
@@ -34,13 +35,30 @@ const reviews: TReview[] = [
 
 export const IslandReviews = () => {
     return (
-        <div className={styles.screen}>
+        <div id="reviews" className={styles.screen}>
             <div className={styles.wrap}>
                 {reviews.map((item, i) => (
-                    <div className={styles.review} key={`review-${i}`}>
+                    <motion.div 
+                        className={styles.review} 
+                        key={`review-${i}`}
+                        initial={{
+                            opacity: 0,
+                            y: 100,
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                                duration: .6,
+                                ease: 'easeOut',
+                                delay: .2*i,
+                            }
+                        }}
+                        viewport={{once: true}}
+                    >
                         <h3 className={styles.review__name}>{item.name}</h3>
                         <div className={styles.review__content}>{item.review}</div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </div>
