@@ -1,0 +1,70 @@
+.screen{
+    position: relative;
+    margin: 200px 0 0 0;
+}
+
+.wrap{  
+    position: relative;
+    width: var(--wrap-size);
+    margin: 0 auto;
+    display: grid;
+    grid-template: 'left right' auto/ 1fr 1fr;
+    gap: 60px;
+}
+
+.book{
+    grid-area: left;
+    align-self: center;
+    justify-self: end;
+    height: 440px;
+    border-radius: 20px;
+}
+
+.info{
+    grid-area: right;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.info__row{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info__key{
+    font-weight: bold;
+}
+
+.info__value{
+    
+}
+
+.info__buy{
+    display: flex;
+    gap: 14px;
+    margin: 30px 0 0 0;
+}
+
+.info__buy > a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.info__buy > a > img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}

@@ -28,8 +28,12 @@
     gap: 20px;
 }
 
-.nav-item{
+.after{
 
+}
+
+.nav-item{
+    text-align: center;
 }
 
 .nav-item a{

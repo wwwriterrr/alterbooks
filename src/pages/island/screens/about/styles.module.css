@@ -1,0 +1,36 @@
+.screen{
+    position: relative;
+    margin: 100px 0 0 0;
+}
+
+.wrap{
+    position: relative;
+    width: var(--wrap-size);
+    margin: 0 auto;
+    display: grid;
+    grid-template: 'left right' auto / 1fr 1fr;
+    gap: 60px;
+}
+
+.text{
+
+}
+
+.left{
+    grid-area: left;
+}
+
+.right{
+    grid-area: right;
+}
+
+.title{
+    margin: 0 0 30px 0;
+    font-family: var(--title-font);
+    font-size: 70px;
+}
+
+.content{
+    font-size: 20px;
+    line-height: 1.3em;
+}

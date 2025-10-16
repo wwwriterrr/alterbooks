@@ -1,0 +1,41 @@
+.screen{
+    position: relative;
+    margin: 200px 0 0 0;
+}
+
+.wrap{
+    position: relative;
+    width: var(--wrap-size);
+    margin: 0 auto;
+    display: grid;
+    grid-template: 'left right' auto / 1fr 1fr;
+    gap: 5vw;
+}
+
+.book{
+    grid-area: left;
+    align-self: self-end;
+    justify-self: center;
+    width: 30vw;
+}
+
+.right{
+    grid-area: right;
+    align-self: center;
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+}
+
+.island{
+    width: 25vw;
+    /* max-width: 355px; */
+}
+
+.apples{
+    position: relative;
+    width: 22vw;
+    left: 10vw;
+    top: -4.5vw;
+    /* max-width: 362px; */
+}

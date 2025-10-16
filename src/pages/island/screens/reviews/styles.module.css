@@ -1,0 +1,31 @@
+.screen{
+    position: relative;
+    margin: 200px 0 0 0;
+}
+
+.wrap{
+    position: relative;
+    width: var(--wrap-size);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.review{
+    position: relative;
+    padding: 50px 20px;
+    background-color: #603C01;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.review__name{
+    margin: 0 0 20px 0;
+    font-weight: bold;
+}
+
+.review__content{
+    line-height: 1.3em;
+}
