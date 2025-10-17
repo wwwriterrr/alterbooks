@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type FC } from 'react'
+import { MouseEventHandler, useState, type CSSProperties, type FC } from 'react'
 import styles from './styles.module.css'
 import { AlterlitLogo } from '../../icons/alterLogo'
 import { Link } from 'react-router-dom'
@@ -29,6 +29,19 @@ export const Navigation: FC<TProps> = ({ items, style, className = '', afterItem
         setMobOpen(false);
     }
 
+    const linkClickHandler: MouseEventHandler<HTMLAnchorElement> = (e) => {
+        e.preventDefault();
+
+        setMobOpen(false);
+
+        const link = e.currentTarget;
+        const target = document.querySelector(link.href);
+
+        if(target){
+            target.scrollIntoView({ behavior: 'smooth', });
+        }
+    }
+
     return (
         <div className={`${styles.wrap} ${className}`} style={style}>
             <nav className={`${styles.nav} ${mobOpen ? styles.mob : ''}`}>
@@ -40,7 +53,7 @@ export const Navigation: FC<TProps> = ({ items, style, className = '', afterItem
                 <ul className={styles.items} style={{ color }}>
                     {items.map((item, i) => (
                         <li className={styles['nav-item']} key={`nav_item-${i}`}>
-                            <Link to={item.url}>{item.label}</Link>
+                            <Link to={item.url} onClick={linkClickHandler}>{item.label}</Link>
                         </li>
                     ))}
                 </ul>
@@ -108,7 +121,7 @@ export const Navigation: FC<TProps> = ({ items, style, className = '', afterItem
                                     >
                                         <Link
                                             to={item.url}
-                                            onClick={overlayClickHandler}
+                                            onClick={linkClickHandler}
                                         >{item.label}</Link>
                                     </motion.div>
                                 ))}
