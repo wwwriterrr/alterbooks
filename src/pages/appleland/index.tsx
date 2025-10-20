@@ -1,32 +1,16 @@
+import { motion } from 'motion/react';
 import styles from './styles.module.css';
 import './index.css';
-import fav from '../../assets/books/island/fav.ico';
-import logo from '../../assets/books/island/logo.svg';
-import { Navigation } from '../../components/nav';
-import { IslandFirstScreen } from './screens/first';
-import { IslandAbout } from './screens/about';
-import { IslandReviews } from './screens/reviews';
-import { IslandInfo } from './screens/info';
 import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-
-const IslandMeta = () => {
-    return (
-        <>
-            <title>«Остров Яблок» Виталий Смышляев</title>
-            <link rel="icon" type="image/svg+xml" href={logo} />
-            <link type="image/x-icon" rel="shortcut icon" href={fav} />
-        </>
-    )
-}
+import { Navigation } from '../../components/nav';
 
 const ChangeSiteButton = () => {
     return (
-        <Link to={'/appleland/'} >Change</Link>
+        <Link to={'/island/'} >Change</Link>
     )
 }
 
-export const IslandBook = () => {
+export const AppleBook = () => {
     const navItems = [
         { label: 'Главная', url: '#first' },
         { label: (<>Знакомство<br />с книгой</>), url: '#about' },
@@ -35,7 +19,7 @@ export const IslandBook = () => {
     ]
 
     return (
-        <motion.div 
+        <motion.div
             className={styles.page}
             initial={{
                 opacity: 0,
@@ -55,17 +39,12 @@ export const IslandBook = () => {
                 }
             }}
         >
-            <IslandMeta />
             <Navigation
                 items={navItems}
                 className={styles.nav}
                 color="#E9AA44"
                 afterItems={<ChangeSiteButton />}
             />
-            <IslandFirstScreen />
-            <IslandAbout />
-            <IslandReviews />
-            <IslandInfo />
         </motion.div>
     )
 }
