@@ -1,4 +1,10 @@
-import { MouseEventHandler, useState, type CSSProperties, type FC } from 'react'
+import { 
+    useState, 
+    type MouseEventHandler, 
+    type ReactElement, 
+    type CSSProperties, 
+    type FC 
+} from 'react'
 import styles from './styles.module.css'
 import { AlterlitLogo } from '../../icons/alterLogo'
 import { Link } from 'react-router-dom'
@@ -6,7 +12,7 @@ import { BurgerIcon } from '../../icons/burgerMenu'
 import { motion, AnimatePresence } from 'motion/react'
 
 type TNavItem = {
-    label: string | JSX.Element,
+    label: string | ReactElement,
     url: string,
 }
 
@@ -14,7 +20,7 @@ type TProps = {
     items: TNavItem[],
     style?: CSSProperties,
     className?: string,
-    afterItems?: JSX.Element,
+    afterItems?: ReactElement,
     color?: string,
 }
 
