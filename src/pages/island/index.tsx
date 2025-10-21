@@ -7,8 +7,8 @@ import { IslandFirstScreen } from './screens/first';
 import { IslandAbout } from './screens/about';
 import { IslandReviews } from './screens/reviews';
 import { IslandInfo } from './screens/info';
-import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { ChangePageButton } from '../../components/changePageButton';
 
 const IslandMeta = () => {
     return (
@@ -17,12 +17,6 @@ const IslandMeta = () => {
             <link rel="icon" type="image/svg+xml" href={logo} />
             <link type="image/x-icon" rel="shortcut icon" href={fav} />
         </>
-    )
-}
-
-const ChangeSiteButton = () => {
-    return (
-        <Link to={'/appleland/'} >Change</Link>
     )
 }
 
@@ -60,7 +54,7 @@ export const IslandBook = () => {
                 items={navItems}
                 className={styles.nav}
                 color="#E9AA44"
-                afterItems={<ChangeSiteButton />}
+                afterItems={<ChangePageButton />}
             />
             <IslandFirstScreen />
             <IslandAbout />

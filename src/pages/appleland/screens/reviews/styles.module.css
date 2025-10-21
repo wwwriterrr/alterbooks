@@ -1,0 +1,54 @@
+.screen{
+    position: relative;
+    margin: 60px 0 0 0;
+}
+
+.wrap{
+    position: relative;
+    width: var(--wrap-size);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.review{
+    position: relative;
+    padding: 80px 40px;
+    background-color: #687684;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.review__name{
+    position: relative;
+    z-index: 2;
+    margin: 0 0 30px 0;
+}
+
+.review__descr{
+    position: relative;
+    z-index: 2;
+}
+
+.quot{
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quot_top{
+    left: 40px;
+    top: -24px;
+}
+
+.quot_bottom{
+    right: 40px;
+    bottom: -24px;
+    transform: rotate(180deg);
+}

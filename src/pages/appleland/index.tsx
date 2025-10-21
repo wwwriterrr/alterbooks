@@ -1,23 +1,12 @@
 import { motion } from 'motion/react';
 import styles from './styles.module.css';
 import './index.css';
-import { Link } from 'react-router-dom';
-import { Navigation } from '../../components/nav';
-
-const ChangeSiteButton = () => {
-    return (
-        <Link to={'/island/'} >Change</Link>
-    )
-}
+import { AppleFirstScreen } from './screens/first';
+import { AppleAbout } from './screens/about';
+import { AppleReviews } from './screens/reviews';
+import { AppleAuthor } from './screens/author';
 
 export const AppleBook = () => {
-    const navItems = [
-        { label: 'Главная', url: '#first' },
-        { label: (<>Знакомство<br />с книгой</>), url: '#about' },
-        { label: 'Отзывы', url: '#reviews' },
-        { label: 'Презентация', url: '' },
-    ]
-
     return (
         <motion.div
             className={styles.page}
@@ -39,12 +28,10 @@ export const AppleBook = () => {
                 }
             }}
         >
-            <Navigation
-                items={navItems}
-                className={styles.nav}
-                color="#E9AA44"
-                afterItems={<ChangeSiteButton />}
-            />
+            <AppleFirstScreen />
+            <AppleAbout />
+            <AppleReviews />
+            <AppleAuthor />
         </motion.div>
     )
 }

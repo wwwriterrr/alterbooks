@@ -16,7 +16,7 @@ export const IslandFirstScreen = () => {
                         opacity: 0,
                         x: -200,
                     }}
-                    whileInView={{
+                    animate={{
                         opacity: 1,
                         x: 0,
                         transition: {
@@ -25,7 +25,6 @@ export const IslandFirstScreen = () => {
                             delay: .3,
                         }
                     }}
-                    viewport={{ once: true }}
                 />
                 <div className={styles.right}>
                     <motion.img
@@ -36,7 +35,7 @@ export const IslandFirstScreen = () => {
                             opacity: 0,
                             x: 200,
                         }}
-                        whileInView={{
+                        animate={{
                             opacity: 1,
                             x: 0,
                             transition: {
@@ -45,7 +44,6 @@ export const IslandFirstScreen = () => {
                                 delay: .3,
                             }
                         }}
-                        viewport={{ once: true }}
                     />
                     <motion.img
                         className={styles.apples}
@@ -55,7 +53,7 @@ export const IslandFirstScreen = () => {
                             opacity: 0,
                             x: 200,
                         }}
-                        whileInView={{
+                        animate={{
                             opacity: 1,
                             x: 0,
                             transition: {
@@ -64,7 +62,6 @@ export const IslandFirstScreen = () => {
                                 delay: .5,
                             }
                         }}
-                        viewport={{ once: true }}
                     />
                 </div>
             </div>

@@ -1,9 +1,10 @@
+import { type ReactElement } from 'react';
 import styles from './styles.module.css';
 import { motion } from 'motion/react';
 
 type TReview = {
-    name: string | JSX.Element,
-    review: string | JSX.Element,
+    name: string | ReactElement,
+    review: string | ReactElement,
 }
 
 const reviews: TReview[] = [

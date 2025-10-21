@@ -1,0 +1,53 @@
+import { QuotIcon } from '../../../../icons/quot';
+import styles from './styles.module.css';
+
+const reviews = [
+    {
+        name: 'Сергей Падалкин',
+        descr: (<>
+            «Офигеть. Ознакомительный фрагмент – отпад башки (или как там выражается восторг). И главное – читаешь и думаешь: всё ж на поверхности лежало, все мы подсознательно этого боялись! Такая прозрачность и простота – признак таланта и труда. ...»
+        </>),
+        content: (<>
+            Test
+        </>)
+    },
+    {
+        name: 'Валентина Морозова',
+        descr: (<>
+            «Проглотила за два вечера. У меня один вопрос: здорово ли, что в книге китаянки представлены как эталон женщины. У нас своих что ли не хватает?...»
+            </>),
+        content: (<>
+            Test 2
+        </>)
+    },
+    {
+        name: 'Nastya347',
+        descr: (<>
+            «Об этом авторе раньше ничего не знала и не слышала даже о нем. Теперь знаю чуть чуть: это волшебник. Все писатели фантасты немного волшебники, они ведь угадывают наше будущее. Смышляев это умный (фамилия обязывает) ....»
+            </>),
+        content: (<>
+            Test 3
+        </>)
+    },
+]
+
+export const AppleReviews = () => {
+    return (
+        <div className={styles.screen}>
+            <div className={styles.wrap}>
+                {reviews.map((item, i) => (
+                    <div className={styles.review} key={`ap_review-${i}`}>
+                        <h3 className={styles.review__name}>{item.name}</h3>
+                        <div className={styles.review__rescr}>{item.descr}</div>
+                        <i className={`${styles.quot} ${styles.quot_top}`}>
+                            <QuotIcon fill="#fff" />
+                        </i>
+                        <i className={`${styles.quot} ${styles.quot_bottom}`}>
+                            <QuotIcon fill="#fff" />
+                        </i>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}

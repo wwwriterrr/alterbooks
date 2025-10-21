@@ -4,7 +4,11 @@ import { BookName } from './src/core/constants';
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [react()],
+    plugins: [react({
+        babel: {
+            plugins: ['babel-plugin-react-compiler'],
+        },
+    }),],
     build: {
         rollupOptions: {
             output: {
