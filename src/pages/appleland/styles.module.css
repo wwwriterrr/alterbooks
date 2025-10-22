@@ -7,3 +7,19 @@
 
     background-color: #002032;
 }
+
+.nav_bottom{
+    position: relative;
+    width: var(--wrap-size);
+    margin: 100px auto 0 auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav_bottom nav{
+    justify-content: center;
+}
+
+.nav_bottom nav ul{
+    gap: 60px;
+}

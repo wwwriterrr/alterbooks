@@ -11,9 +11,9 @@ export const App: FC = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Navigate to={"/island/"} />} />
-                    <Route path="/kerosine/" element={<KerosineBook />} />
-                    <Route path="/island/" element={<AppleRouter />} />
-                    <Route path="/appleland/" element={<AppleRouter />} />
+                    <Route path="kerosine" element={<KerosineBook />} />
+                    <Route path="island" element={<AppleRouter />} />
+                    <Route path="appleland" element={<AppleRouter />} />
                     <Route path="*" element={<div>404</div>} />
                 </Routes>
             </BrowserRouter>

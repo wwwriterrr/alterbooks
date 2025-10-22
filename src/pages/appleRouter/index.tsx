@@ -9,11 +9,11 @@ export const AppleRouter = () => {
     return (
         <>
             <AnimatePresence mode="wait">
-                {location.pathname === '/island/' ? (
+                {/^\/island/.test(location.pathname) ? (
                     <IslandBook key={'island_book'} />
-                ) : location.pathname === '/appleland/' ? (
+                ) : /^\/appleland/.test(location.pathname) ? (
                     <AppleBook key={'apple_book'} />
-                ) : (<>404</>)}
+                ) : (<>Status 404</>)}
             </AnimatePresence>
         </>
     )

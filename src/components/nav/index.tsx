@@ -1,13 +1,13 @@
-import { 
-    useState, 
-    type MouseEventHandler, 
-    type ReactElement, 
-    type CSSProperties, 
-    type FC 
+import {
+    useState,
+    type MouseEventHandler,
+    type ReactElement,
+    type CSSProperties,
+    type FC
 } from 'react'
 import styles from './styles.module.css'
 import { AlterlitLogo } from '../../icons/alterLogo'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { BurgerIcon } from '../../icons/burgerMenu'
 import { motion, AnimatePresence } from 'motion/react'
 
@@ -22,10 +22,13 @@ type TProps = {
     className?: string,
     afterItems?: ReactElement,
     color?: string,
+    showLogo?: boolean,
 }
 
-export const Navigation: FC<TProps> = ({ items, style, className = '', afterItems, color = '#000' }) => {
+export const Navigation: FC<TProps> = ({ items, style, className = '', afterItems, showLogo = true, color = '#000' }) => {
     const [mobOpen, setMobOpen] = useState<boolean>(false);
+
+    const navigate = useNavigate();
 
     const btnClickHandler = () => {
         setMobOpen(!mobOpen);
@@ -41,21 +44,27 @@ export const Navigation: FC<TProps> = ({ items, style, className = '', afterItem
         setMobOpen(false);
 
         const link = e.currentTarget;
-        const target = document.querySelector(link.href);
+        const href = link.href;
+        const url = new URL(href);
 
-        if(target){
-            target.scrollIntoView({ behavior: 'smooth', });
+        if (url.hash) {
+            const target = document.querySelector(url.hash);
+            target?.scrollIntoView({ behavior: 'smooth', });
+        }else{
+            navigate(`${url.pathname}?${url.searchParams.toString()}`);
         }
     }
 
     return (
         <div className={`${styles.wrap} ${className}`} style={style}>
             <nav className={`${styles.nav} ${mobOpen ? styles.mob : ''}`}>
-                <div className={styles.logo}>
-                    <Link to={'https://alterlit.ru'}>
-                        <AlterlitLogo width={180} height={132} fill={color} />
-                    </Link>
-                </div>
+                {showLogo ? (
+                    <div className={styles.logo}>
+                        <Link to={'https://alterlit.ru'}>
+                            <AlterlitLogo width={180} height={132} fill={color} />
+                        </Link>
+                    </div>
+                ) : null}
                 <ul className={styles.items} style={{ color }}>
                     {items.map((item, i) => (
                         <li className={styles['nav-item']} key={`nav_item-${i}`}>

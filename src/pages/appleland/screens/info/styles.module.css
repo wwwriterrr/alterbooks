@@ -1,0 +1,19 @@
+.screen{
+    
+}
+
+.footer{
+    padding: 100px 0;
+}
+
+.footer :global(.book-footer__wrap){
+    width: var(--wrap-size);
+    margin: 0 auto;
+    background-color: #023053;
+    color: #fff;
+    font-size: 24px;
+}
+
+.footer :global(.book-footer__cover){
+    width: 320px;
+}
