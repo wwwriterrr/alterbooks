@@ -6,6 +6,8 @@ import { IslandBook } from "./pages/island";
 import { AppleBook, AppleIndex } from "./pages/appleland";
 import { AnimatePresence } from "motion/react";
 import { AppleArtsPage } from "./pages/appleland/pages/arts";
+import { AppleReviewsPage } from "./pages/appleland/pages/reviews";
+import { AppleCritiquePage } from "./pages/appleland/pages/critique";
 
 const getAnimationKey = (pathname: string): string => {
     // Для всех роутов appleland возвращаем один ключ
@@ -30,6 +32,8 @@ const AnimatedRoutes: FC = () => {
                 <Route path="appleland" element={<AppleBook />} >
                     <Route path="" element={<AppleIndex />} />
                     <Route path="arts" element={<AppleArtsPage />} />
+                    <Route path="reviews" element={<AppleReviewsPage />} />
+                    <Route path="critique" element={<AppleCritiquePage />} />
                 </Route>
                 <Route path="*" element={<div>404</div>} />
             </Routes>

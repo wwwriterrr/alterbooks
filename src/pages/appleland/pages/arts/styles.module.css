@@ -1,1 +1,22 @@
 
+
+.arts{
+    position: relative;
+    width: var(--wrap-size);
+    margin: 100px auto 0 auto;
+    display: grid;
+    grid-template: auto auto / 1fr 1fr;
+    gap: 20px;
+}
+
+.art{
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.art:nth-child(3){
+    grid-column-end: span 2;
+}

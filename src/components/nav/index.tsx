@@ -3,21 +3,26 @@ import {
     type ReactElement,
     type CSSProperties,
     type FC,
+    useRef,
     // MouseEvent
 } from 'react'
 import styles from './styles.module.css'
 import { AlterlitLogo } from '../../icons/alterLogo'
-import { 
-    Link, 
+import {
+    Link,
     // useNavigate 
 } from 'react-router-dom'
 import { BurgerIcon } from '../../icons/burgerMenu'
 import { motion, AnimatePresence } from 'motion/react'
+import { useOutsideClick } from '../../core/hooks'
+import { ArrowIcon } from '../../icons/arrow'
 
-type TNavItem = {
+export type TNavItem = {
     label: string | ReactElement,
     url: string,
     onClick?: () => void,
+    child?: TNavItem[],
+    childPosition?: 'top' | 'bottom',
 }
 
 type TProps = {
@@ -27,6 +32,87 @@ type TProps = {
     afterItems?: ReactElement,
     color?: string,
     showLogo?: boolean,
+}
+
+const NavItem: FC<{ item: TNavItem, color: string }> = ({ item, color }) => {
+    const [showChild, setShowChild] = useState<boolean>(false);
+
+    const ref = useRef<HTMLLIElement>(null);
+
+    const clickHandler = () => {
+        setShowChild(!showChild);
+    }
+
+    const outsideHandler = () => {
+        setShowChild(false)
+    };
+
+    useOutsideClick(ref, outsideHandler);
+
+    return (
+        <li ref={ref} className={styles['nav-item']}>
+            {item.child?.length ? (
+                <>
+                    <button
+                        onClick={clickHandler}
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: 6,
+                        }}
+                    >
+                        {item.label}
+                        {item.childPosition !== 'top' ? (
+                            <ArrowIcon direction={showChild ? 'up' : 'down'} fill={color} />
+                        ) : null}
+                    </button>
+                    <AnimatePresence>
+                        {showChild ? (
+                            <motion.ul
+                                className={styles.child}
+                                style={{
+                                    top: item.childPosition === 'top' ? 'auto' : '100%',
+                                    bottom: item.childPosition === 'top' ? '100%' : 'auto',
+                                }}
+                                initial={{
+                                    opacity: 0,
+                                    y: item.childPosition === 'top' ? -50 : 50,
+                                    x: '-50%',
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    y: item.childPosition === 'top' ? -10 : 10,
+                                    x: '-50%',
+                                    transition: {
+                                        duration: .3,
+                                        ease: 'easeOut',
+                                    }
+                                }}
+                                exit={{
+                                    opacity: 0,
+                                    y: item.childPosition === 'top' ? -50 : 50,
+                                    x: '-50%',
+                                    transition: {
+                                        duration: .1,
+                                        ease: 'linear',
+                                    }
+                                }}
+                            >
+                                {item.child.map((childItem, i) => (
+                                    <NavItem item={childItem} key={`nav_item_child-${i}`} color={color} />
+                                ))}
+                            </motion.ul>
+                        ) : null}
+                    </AnimatePresence>
+                </>
+            ) : (
+                <Link
+                    to={item.url}
+                >{item.label}</Link>
+            )}
+        </li>
+    )
 }
 
 export const Navigation: FC<TProps> = ({
@@ -83,12 +169,7 @@ export const Navigation: FC<TProps> = ({
                 ) : null}
                 <ul className={styles.items} style={{ color }}>
                     {items.map((item, i) => (
-                        <li className={styles['nav-item']} key={`nav_item-${i}`}>
-                            <Link 
-                            to={item.url} 
-                            // onClick={(e) => linkClickHandler(e, item.onClick)}
-                            >{item.label}</Link>
-                        </li>
+                        <NavItem item={item} color={color} key={`nav_item-${i}`} />
                     ))}
                 </ul>
                 {afterItems ? (<div className={styles.after}>{afterItems}</div>) : null}
@@ -155,7 +236,7 @@ export const Navigation: FC<TProps> = ({
                                     >
                                         <Link
                                             to={item.url}
-                                            // onClick={(e) => linkClickHandler(e, item.onClick)}
+                                        // onClick={(e) => linkClickHandler(e, item.onClick)}
                                         >{item.label}</Link>
                                     </motion.div>
                                 ))}

@@ -46,6 +46,15 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'AV Fontimer';
+    src: local('AV Fontimer'),
+        local('AVFontimer-Bold'),
+        url('/src/assets/books/appleland/ofont.ru_AV\ Fontimer.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --wrap-size: 1440px;
     --ap-main-font: 'Monrope', sans-serif;
@@ -58,6 +67,7 @@ body {
     font-family: var(--ap-main-font);
     font-size: 16px;
     font-weight: normal;
+    background-color: #002032;
 }
 
 @media screen and (max-width: 1560px) {

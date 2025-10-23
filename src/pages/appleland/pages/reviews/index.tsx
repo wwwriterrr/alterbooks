@@ -1,13 +1,13 @@
 import { type FC } from 'react';
 // import styles from './styles.module.css';
 import { AppleBottomNavigation, AppleNavigation } from '../..';
-import { AppleArtsList } from './list';
+import { AppleReviewsList } from '../../screens/pageReviews';
 
-export const AppleArtsPage: FC = () => {
+export const AppleReviewsPage: FC = () => {
     return (
         <>
             <AppleNavigation />
-            <AppleArtsList />
+            <AppleReviewsList />
             <AppleBottomNavigation />
         </>
     )

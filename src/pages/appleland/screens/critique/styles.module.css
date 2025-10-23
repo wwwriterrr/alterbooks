@@ -1,0 +1,99 @@
+.screen{
+    position: relative;
+    margin: 100px 0;
+}
+
+.wrap{
+    position: relative;
+    width: var(--wrap-size);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+}
+
+.item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 40px;
+    font-family: 'AV Fontimer', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.item:nth-child(1),
+.item:nth-child(3),
+.item:nth-child(6){
+    grid-column-end: span 3;
+}
+
+.item:nth-child(2),
+.item:nth-child(4),
+.item:nth-child(5){
+    grid-column-end: span 2;
+}
+
+.item:nth-child(3){
+    grid-row-end: span 2;
+}
+
+.item:nth-child(3),
+.item:nth-child(6){
+    font-size: 24px;
+}
+
+.item:nth-child(1){
+    background-color: #9EAAB599;
+}
+
+.item:nth-child(2){
+    background-color: #59758F99;
+}
+
+.item:nth-child(3){
+    background-color: #5A6E8199;
+}
+
+.item:nth-child(4){
+    background-color: #79A1C699;
+}
+
+.item:nth-child(5){
+    background-color: #879CB099;
+}
+
+.item:nth-child(6){
+    background-color: #879CB099;
+}
+
+.item__author{
+
+}
+
+.item__title{
+
+}
+
+.item__icon{
+    position: absolute;
+    right: 40px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image{
+    grid-column-end: span 2;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    width: 100%;
+    max-height: 400px;
+}
