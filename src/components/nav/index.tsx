@@ -1,19 +1,23 @@
 import {
     useState,
-    type MouseEventHandler,
     type ReactElement,
     type CSSProperties,
-    type FC
+    type FC,
+    // MouseEvent
 } from 'react'
 import styles from './styles.module.css'
 import { AlterlitLogo } from '../../icons/alterLogo'
-import { Link, useNavigate } from 'react-router-dom'
+import { 
+    Link, 
+    // useNavigate 
+} from 'react-router-dom'
 import { BurgerIcon } from '../../icons/burgerMenu'
 import { motion, AnimatePresence } from 'motion/react'
 
 type TNavItem = {
     label: string | ReactElement,
     url: string,
+    onClick?: () => void,
 }
 
 type TProps = {
@@ -25,10 +29,17 @@ type TProps = {
     showLogo?: boolean,
 }
 
-export const Navigation: FC<TProps> = ({ items, style, className = '', afterItems, showLogo = true, color = '#000' }) => {
+export const Navigation: FC<TProps> = ({
+    items,
+    style,
+    className = '',
+    afterItems,
+    showLogo = true,
+    color = '#000',
+}) => {
     const [mobOpen, setMobOpen] = useState<boolean>(false);
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const btnClickHandler = () => {
         setMobOpen(!mobOpen);
@@ -38,22 +49,27 @@ export const Navigation: FC<TProps> = ({ items, style, className = '', afterItem
         setMobOpen(false);
     }
 
-    const linkClickHandler: MouseEventHandler<HTMLAnchorElement> = (e) => {
-        e.preventDefault();
+    // const linkClickHandler = (e: MouseEvent<HTMLAnchorElement>, onClick?: () => void) => {
+    //     e.preventDefault();
 
-        setMobOpen(false);
+    //     setMobOpen(false);
 
-        const link = e.currentTarget;
-        const href = link.href;
-        const url = new URL(href);
+    //     if(onClick){
+    //         onClick();
+    //         return;
+    //     }
 
-        if (url.hash) {
-            const target = document.querySelector(url.hash);
-            target?.scrollIntoView({ behavior: 'smooth', });
-        }else{
-            navigate(`${url.pathname}?${url.searchParams.toString()}`);
-        }
-    }
+    //     const link = e.currentTarget;
+    //     const href = link.href;
+    //     const url = new URL(href);
+
+    //     if (url.hash) {
+    //         const target = document.querySelector(url.hash);
+    //         target?.scrollIntoView({ behavior: 'smooth', });
+    //     } else {
+    //         navigate(`${url.pathname}?${url.searchParams.toString()}`);
+    //     }
+    // }
 
     return (
         <div className={`${styles.wrap} ${className}`} style={style}>
@@ -68,7 +84,10 @@ export const Navigation: FC<TProps> = ({ items, style, className = '', afterItem
                 <ul className={styles.items} style={{ color }}>
                     {items.map((item, i) => (
                         <li className={styles['nav-item']} key={`nav_item-${i}`}>
-                            <Link to={item.url} onClick={linkClickHandler}>{item.label}</Link>
+                            <Link 
+                            to={item.url} 
+                            // onClick={(e) => linkClickHandler(e, item.onClick)}
+                            >{item.label}</Link>
                         </li>
                     ))}
                 </ul>
@@ -136,7 +155,7 @@ export const Navigation: FC<TProps> = ({ items, style, className = '', afterItem
                                     >
                                         <Link
                                             to={item.url}
-                                            onClick={linkClickHandler}
+                                            // onClick={(e) => linkClickHandler(e, item.onClick)}
                                         >{item.label}</Link>
                                     </motion.div>
                                 ))}

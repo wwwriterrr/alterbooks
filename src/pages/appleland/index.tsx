@@ -7,17 +7,11 @@ import { AppleReviews } from './screens/reviews';
 import { AppleAuthor } from './screens/author';
 import { AppleInfo } from './screens/info';
 import { Navigation } from '../../components/nav';
-import { useSearchParams } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { type ReactElement, type FC } from 'react';
+import { ChangePageButton } from '../../components/changePageButton';
 
-const AppleIndex = () => {
-    const navItems = [
-        { label: (<>Знакомство<br />с книгой</>), url: '#first' },
-        { label: 'Арты', url: '#info' },
-        { label: 'Отзывы', url: '#reviews' },
-        { label: (<>Отправить<br />рецензию</>), url: '#send-review' },
-        { label: 'Презентация', url: '#present' },
-    ]
-
+export const ApplePageContainer: FC<{ children?: ReactElement }> = ({ children }) => {
     return (
         <motion.div
             className={styles.page}
@@ -39,37 +33,85 @@ const AppleIndex = () => {
                 }
             }}
         >
+            {children}
+        </motion.div>
+    )
+}
+
+
+export const AppleIndex = () => {
+    return (
+        <>
+            <AppleNavigation />
             <AppleFirstScreen />
             <AppleAbout />
             <AppleReviews />
             <AppleAuthor />
             <AppleInfo />
-            <Navigation
-                items={navItems}
-                className={styles.nav_bottom}
-                color="#E9AA44"
-                showLogo={false}
-            />
-        </motion.div>
+            <AppleBottomNavigation />
+        </>
     )
 }
 
-const AppleRouter = () => {
-    const [search, setSearchPrams] = useSearchParams();
+const navItems = [
+    { label: (<>Знакомство<br />с книгой</>), url: '/appleland/' },
+    { label: 'Арты', url: '/appleland/arts/' },
+    { label: 'Отзывы', url: '#reviews' },
+    { label: (<>Отправить<br />рецензию</>), url: '#send-review' },
+    {
+        label: 'Презентация',
+        url: '#',
+        onClick: () => {
+            console.log('open modal');
+        }
+    },
+]
 
-    console.log(setSearchPrams);
-
-    const page = search.get('page');
-
+export const AppleNavigation = () => {
     return (
-        <>
-            {!page ? (<AppleIndex />) : null}
-        </>
+        <Navigation
+            items={navItems}
+            className={styles.nav}
+            color="#E9AA44"
+            afterItems={<ChangePageButton />}
+        />
+    )
+}
+
+export const AppleBottomNavigation = () => {
+    return (
+        <Navigation
+            items={navItems}
+            className={styles.nav_bottom}
+            color="#E9AA44"
+            showLogo={false}
+        />
     )
 }
 
 export const AppleBook = () => {
     return (
-        <AppleRouter />
+        <motion.div
+            className={styles.page}
+            initial={{
+                opacity: 0,
+            }}
+            animate={{
+                opacity: 1,
+                transition: {
+                    duration: .6,
+                    ease: 'easeOut',
+                }
+            }}
+            exit={{
+                opacity: 0,
+                transition: {
+                    duration: .3,
+                    ease: 'easeOut',
+                }
+            }}
+        >
+            <Outlet />
+        </motion.div>
     )
 }

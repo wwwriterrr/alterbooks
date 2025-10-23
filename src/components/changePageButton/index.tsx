@@ -24,7 +24,7 @@ export const ChangePageButton: FC = () => {
                 className={styles.btn}
                 onClick={clickHandler}
             >
-                {location.pathname === '/island/' ? (
+                {/\/island/.test(location.pathname) ? (
                     <motion.i
                         className={styles.icon}
                         layoutId="changeIcon"
@@ -37,7 +37,7 @@ export const ChangePageButton: FC = () => {
                 className={styles.btn}
                 onClick={clickHandler}
             >
-                {location.pathname === '/appleland/' ? (
+                {/\/appleland/.test(location.pathname) ? (
                     <motion.i
                         className={styles.icon}
                         layoutId="changeIcon"

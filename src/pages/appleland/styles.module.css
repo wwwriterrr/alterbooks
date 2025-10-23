@@ -1,11 +1,15 @@
 .page{
     position: relative;
     width: 100%;
-    padding: 0 0 100px 0;
+    padding: 100px 0 100px 100px;
     overflow: hidden;
     min-height: 100vh;
 
     background-color: #002032;
+    background-image: url('../../assets/books/appleland/backgr.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }
 
 .nav_bottom{
@@ -21,5 +25,18 @@
 }
 
 .nav_bottom nav ul{
+    gap: 60px;
+}
+
+.nav {
+    position: relative;
+    z-index: 4;
+    width: var(--wrap-size);
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav nav ul {
     gap: 60px;
 }
