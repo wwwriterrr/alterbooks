@@ -4,13 +4,11 @@ import {
     type CSSProperties,
     type FC,
     useRef,
-    // MouseEvent
 } from 'react'
 import styles from './styles.module.css'
 import { AlterlitLogo } from '../../icons/alterLogo'
 import {
     Link,
-    // useNavigate 
 } from 'react-router-dom'
 import { BurgerIcon } from '../../icons/burgerMenu'
 import { motion, AnimatePresence } from 'motion/react'
@@ -107,9 +105,17 @@ const NavItem: FC<{ item: TNavItem, color: string }> = ({ item, color }) => {
                     </AnimatePresence>
                 </>
             ) : (
-                <Link
-                    to={item.url}
-                >{item.label}</Link>
+                <>
+                    {item.onClick ? (
+                        <button type="button" onClick={item.onClick}>
+                            {item.label}
+                        </button>
+                    ) : (
+                        <Link
+                            to={item.url}
+                        >{item.label}</Link>
+                    )}
+                </>
             )}
         </li>
     )
@@ -125,8 +131,6 @@ export const Navigation: FC<TProps> = ({
 }) => {
     const [mobOpen, setMobOpen] = useState<boolean>(false);
 
-    // const navigate = useNavigate();
-
     const btnClickHandler = () => {
         setMobOpen(!mobOpen);
     }
@@ -134,28 +138,6 @@ export const Navigation: FC<TProps> = ({
     const overlayClickHandler = () => {
         setMobOpen(false);
     }
-
-    // const linkClickHandler = (e: MouseEvent<HTMLAnchorElement>, onClick?: () => void) => {
-    //     e.preventDefault();
-
-    //     setMobOpen(false);
-
-    //     if(onClick){
-    //         onClick();
-    //         return;
-    //     }
-
-    //     const link = e.currentTarget;
-    //     const href = link.href;
-    //     const url = new URL(href);
-
-    //     if (url.hash) {
-    //         const target = document.querySelector(url.hash);
-    //         target?.scrollIntoView({ behavior: 'smooth', });
-    //     } else {
-    //         navigate(`${url.pathname}?${url.searchParams.toString()}`);
-    //     }
-    // }
 
     return (
         <div className={`${styles.wrap} ${className}`} style={style}>
@@ -234,10 +216,15 @@ export const Navigation: FC<TProps> = ({
                                             }
                                         }}
                                     >
-                                        <Link
-                                            to={item.url}
-                                        // onClick={(e) => linkClickHandler(e, item.onClick)}
-                                        >{item.label}</Link>
+                                        {item.onClick ? (
+                                            <button type="button" onClick={item.onClick}>
+                                                {item.label}
+                                            </button>
+                                        ) : (
+                                            <Link
+                                                to={item.url}
+                                            >{item.label}</Link>
+                                        )}
                                     </motion.div>
                                 ))}
                             </div>

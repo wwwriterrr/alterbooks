@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import styles from './styles.module.css';
+import modalStyles from '../../components/modals/ReviewModal.module.css';
 import './index.css';
 import { AppleFirstScreen } from './screens/first';
 import { AppleAbout } from './screens/about';
@@ -10,6 +11,21 @@ import { Navigation, TNavItem } from '../../components/nav';
 import { Outlet, useLocation } from 'react-router-dom';
 import { type ReactElement, type FC, useEffect } from 'react';
 import { ChangePageButton } from '../../components/changePageButton';
+import { useAppDispatch } from '../../services/store';
+import { openModal } from '../../services/modal/slice';
+import fav from '../../assets/books/island/fav.ico';
+import logo from '../../assets/books/island/logo.svg';
+import { AppleReviewModal } from '../../components/modals/ReviewModal';
+
+const AppleMeta = () => {
+    return (
+        <>
+            <title>«Страна Яблок» Виталий Смышляев</title>
+            <link rel="icon" type="image/svg+xml" href={logo} />
+            <link type="image/x-icon" rel="shortcut icon" href={fav} />
+        </>
+    )
+}
 
 export const ApplePageContainer: FC<{ children?: ReactElement }> = ({ children }) => {
     return (
@@ -53,7 +69,7 @@ export const AppleIndex = () => {
     )
 }
 
-const navItems: TNavItem[] = [
+let navItems: TNavItem[] = [
     { label: (<>Знакомство<br />с книгой</>), url: '/appleland/' },
     { label: 'Арты', url: '/appleland/arts/' },
     { 
@@ -87,6 +103,20 @@ const bottomNavItems: TNavItem[] = navItems.map(item => {
 });
 
 export const AppleNavigation = () => {
+    const dispatch = useAppDispatch();
+
+    const handleReview = () => {
+        dispatch(openModal({content: <AppleReviewModal />, className: modalStyles.modal}))
+    }
+
+    navItems = navItems.map(item => {
+        if(item.url === '#send-review'){
+            item.onClick = handleReview;
+        }
+
+        return item;
+    })
+
     return (
         <Navigation
             items={navItems}
@@ -138,6 +168,7 @@ export const AppleBook = () => {
                 }
             }}
         >
+            <AppleMeta />
             <Outlet />
         </motion.div>
     )

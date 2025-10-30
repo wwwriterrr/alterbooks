@@ -1,0 +1,40 @@
+.modal{
+    
+}
+
+.modal :global(.modal__window){
+    width: 550px;
+}
+
+.modal :global(.modal__content){
+    padding: 40px;
+}
+
+.wrap{
+
+}
+
+.form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.row{
+
+}
+
+.submit{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-radius: 6px;
+    background-color: #E9AA44;
+    color: #fff;
+    font-weight: 700;
+}
+
+.submit:disabled{
+    opacity: .4;
+}

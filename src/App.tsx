@@ -8,6 +8,9 @@ import { AnimatePresence } from "motion/react";
 import { AppleArtsPage } from "./pages/appleland/pages/arts";
 import { AppleReviewsPage } from "./pages/appleland/pages/reviews";
 import { AppleCritiquePage } from "./pages/appleland/pages/critique";
+import { Provider } from 'react-redux';
+import { store } from "./services/store";
+import { ModalHOC } from "./HOC/modal";
 
 const getAnimationKey = (pathname: string): string => {
     // Для всех роутов appleland возвращаем один ключ
@@ -44,9 +47,12 @@ const AnimatedRoutes: FC = () => {
 export const App: FC = () => {
     return (
         <div id="app" className="App">
-            <BrowserRouter>
-                <AnimatedRoutes />
-            </BrowserRouter>
+            <Provider store={store}>
+                <ModalHOC />
+                <BrowserRouter>
+                    <AnimatedRoutes />
+                </BrowserRouter>
+            </Provider>
         </div>
     );
 };
