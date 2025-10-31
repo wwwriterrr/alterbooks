@@ -17,6 +17,10 @@ import { SuccessAnimation } from '../../icons/success';
 type TFormState = {
     error: null | string,
     success: boolean,
+    name?: string,
+    email?: string,
+    title?: string,
+    content?: string,
 }
 
 const initialState: TFormState = { error: null, success: false }
@@ -39,14 +43,49 @@ export const AppleReviewModal: FC = () => {
     const submitHandler = async (prevState: TFormState, formData: FormData) => {
         console.log(formData.get('name'));
 
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const title = formData.get('title');
+        const content = formData.get('content');
+
+        if(!name || !email || !title || !content){
+            return {
+                error: 'Заполните обязательные поля!', 
+                success: false,
+                name,
+                email,
+                title,
+                content,
+            } as TFormState;
+        }
+
+        if(!emailValidate(email.toString())){
+            setEmailError(true);
+            return {
+                error: 'Неверный формат email!', 
+                success: false,
+                name,
+                email,
+                title,
+                content,
+            } as TFormState;
+        }
+
         // prevState.error = null;
         try {
-            await dispatch(AppleSendReview()).unwrap();
+            await dispatch(AppleSendReview({data: formData})).unwrap();
             // await dispatch(animateCloseModal(400));
-            return { error: null, success: true };
+            return { error: null, success: true } as TFormState;
         } catch (err) {
             console.error(err);
-            return { error: 'Error with send review', success: false };
+            return { 
+                error: 'Error with send review', 
+                success: false,
+                name,
+                email,
+                title,
+                content,
+            } as TFormState;
         }
     }
 
@@ -103,6 +142,7 @@ export const AppleReviewModal: FC = () => {
                                 fullWidth
                                 required
                                 disabled={isPending}
+                                value={state.name}
                             />
                         </div>
                         <div className={styles.row}>
@@ -119,6 +159,7 @@ export const AppleReviewModal: FC = () => {
                                 onBlur={handleEmailBlur}
                                 onFocus={handleEmailFocus}
                                 helperText={emailError ? 'Некорректно указан email' : undefined}
+                                value={state.email}
                             />
                         </div>
                         <div className={styles.row}>
@@ -130,6 +171,7 @@ export const AppleReviewModal: FC = () => {
                                 fullWidth
                                 required
                                 disabled={isPending}
+                                value={state.title}
                             />
                         </div>
                         <div className={styles.row}>
@@ -143,6 +185,7 @@ export const AppleReviewModal: FC = () => {
                                 rows={5}
                                 required
                                 disabled={isPending}
+                                value={state.content}
                             />
                         </div>
                         <div className={styles.row}>

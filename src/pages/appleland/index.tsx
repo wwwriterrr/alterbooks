@@ -106,7 +106,7 @@ export const AppleNavigation = () => {
     const dispatch = useAppDispatch();
 
     const handleReview = () => {
-        dispatch(openModal({content: <AppleReviewModal />, className: modalStyles.modal}))
+        dispatch(openModal({content: <AppleReviewModal />, title: 'Рецензия', className: modalStyles.modal}))
     }
 
     navItems = navItems.map(item => {
