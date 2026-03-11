@@ -22,14 +22,26 @@ const IslandMeta = () => {
 
 export const IslandBook = () => {
     const navItems = [
-        { label: 'Главная', url: '#first' },
-        { label: (<>Знакомство<br />с книгой</>), url: '#about' },
-        { label: 'Отзывы', url: '#reviews' },
+        {
+            label: 'Главная', url: '#first', onClick: () => {
+                document.getElementById('first')?.scrollIntoView({ behavior: 'smooth' })
+            }
+        },
+        {
+            label: (<>Знакомство<br />с книгой</>), url: '#about', onClick: () => {
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+            }
+        },
+        {
+            label: 'Отзывы', url: '#reviews', onClick: () => {
+                document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' })
+            }
+        },
         { label: 'Презентация', url: '' },
     ]
 
     return (
-        <motion.div 
+        <motion.div
             className={styles.page}
             initial={{
                 opacity: 0,
