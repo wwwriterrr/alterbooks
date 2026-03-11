@@ -41,7 +41,7 @@ export const AppleReviewModal: FC = () => {
     const dispatch = useAppDispatch();
 
     const submitHandler = async (prevState: TFormState, formData: FormData) => {
-        console.log(formData.get('name'));
+        console.log(prevState);
 
         const name = formData.get('name');
         const email = formData.get('email');
