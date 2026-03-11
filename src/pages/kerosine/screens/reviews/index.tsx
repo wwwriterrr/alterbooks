@@ -1,8 +1,9 @@
+import { ReactElement } from 'react';
 import img1 from '../../../../assets/books/kerosine/4.png';
 import styles from './styles.module.css';
 
 type TAltReview = {
-    content: string | JSX.Element,
+    content: string | ReactElement,
     url?: string,
 }
 
