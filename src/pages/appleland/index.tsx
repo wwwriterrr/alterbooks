@@ -85,7 +85,8 @@ let navItems: TNavItem[] = [
         label: 'Презентация',
         url: '#',
         onClick: () => {
-            console.log('open modal');
+            console.log('open presentation');
+            window.open('https://alterlit.ru/media/post_files/cb527acb5d4243aa91b561a2a2db6bd5.pdf', '_blank');
         }
     },
 ]
