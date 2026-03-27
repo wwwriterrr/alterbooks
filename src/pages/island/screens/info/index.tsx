@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import img1 from '../../../../assets/books/island/2.png';
 import img2 from '../../../../assets/books/island/b1.png';
-import img3 from '../../../../assets/books/island/b2.png';
-import img4 from '../../../../assets/books/island/b3.png';
-import img5 from '../../../../assets/books/island/b4.png';
+// import img3 from '../../../../assets/books/island/b2.png';
+// import img4 from '../../../../assets/books/island/b3.png';
+// import img5 from '../../../../assets/books/island/b4.png';
 import styles from './styles.module.css';
 import { motion } from 'motion/react';
 
@@ -77,10 +77,10 @@ export const IslandInfo = () => {
                         <div className={styles.info__key}>ПРИОБРЕТАЙТЕ КНИГУ:</div>
                     </div>
                     <div className={styles.info__buy}>
-                        <Link to={'#'} >
+                        <Link to={'https://alterlit.net/magazin/product/apple_island'} >
                             <img src={img2} alt="buy" />
                         </Link>
-                        <Link to={'#'} >
+                        {/* <Link to={'#'} >
                             <img src={img3} alt="buy" />
                         </Link>
                         <Link to={'#'} >
@@ -88,7 +88,7 @@ export const IslandInfo = () => {
                         </Link>
                         <Link to={'#'} >
                             <img src={img5} alt="buy" />
-                        </Link>
+                        </Link> */}
                     </div>
                 </motion.div>
             </div>

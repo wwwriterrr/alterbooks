@@ -5,7 +5,7 @@ import logo from '../../assets/books/island/logo.svg';
 import { Navigation } from '../../components/nav';
 import { IslandFirstScreen } from './screens/first';
 import { IslandAbout } from './screens/about';
-import { IslandReviews } from './screens/reviews';
+// import { IslandReviews } from './screens/reviews';
 import { IslandInfo } from './screens/info';
 import { motion } from 'motion/react';
 import { ChangePageButton } from '../../components/changePageButton';
@@ -77,7 +77,7 @@ export const IslandBook = () => {
             />
             <IslandFirstScreen />
             <IslandAbout />
-            <IslandReviews />
+            {/* <IslandReviews /> */}
             <IslandInfo />
         </motion.div>
     )
