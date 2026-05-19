@@ -1,3 +1,4 @@
+import { FC, useCallback, useState } from 'react';
 import { QuotIcon } from '../../../../icons/quot';
 import styles from './styles.module.css';
 
@@ -12,37 +13,58 @@ const reviews = [
         name: 'Валентина Морозова',
         descr: (<>
             «Проглотила за два вечера. У меня один вопрос: здорово ли, что в книге китаянки представлены как эталон женщины. У нас своих что ли не хватает? Что за фантазия?»
-            </>),
+        </>),
     },
     {
         name: 'Nastya347',
         descr: (<>
-            «Об этом авторе раньше ничего не знала и не слышала даже о нем. Теперь знаю чуть чуть: это волшебник. Все писатели фантасты немного волшебники, они ведь угадывают наше будущее. Смышляев это умный (фамилия обязывает 😉 ) волшебник. И мне кажется, добрый. Понравилось, что в «Стране яблок» будущее страшное, но написано, как пережить и как бороться, и надежда есть. И любовь, конечно. Пятерка с минусом – минус за то, что главному герою хотелось пощечин надовать и наорать на него иногда. »
-            </>),
+            «Об этом авторе раньше ничего не знала и не слышала даже о нем. Теперь знаю чуть чуть: это волшебник. Все писатели фантасты немного волшебники, они ведь угадывают наше будущее. Смышляев это умный (фамилия обязывает 😉 ) волшебник. И мне кажется, добрый. Понравилось, что в «Стране яблок» ...»
+        </>),
         content: (<>
-            Об этом авторе раньше ничего не знала и не слышала даже о нем. Теперь знаю чуть чуть: это волшебник. Все писатели фантасты немного волшебники, они ведь угадывают наше будущее. Смышляев это умный (фамилия обязывает 😉 ) волшебник. И мне кажется, добрый. Понравилось, что в «Стране яблок» будущее страшное, но написано, как пережить и как бороться, и надежда есть. И любовь, конечно. Пятерка с минусом – минус за то, что главному герою хотелось пощечин надовать и наорать на него иногда. 
+            «Об этом авторе раньше ничего не знала и не слышала даже о нем. Теперь знаю чуть чуть: это волшебник. Все писатели фантасты немного волшебники, они ведь угадывают наше будущее. Смышляев это умный (фамилия обязывает 😉 ) волшебник. И мне кажется, добрый. Понравилось, что в «Стране яблок» будущее страшное, но написано, как пережить и как бороться, и надежда есть. И любовь, конечно. Пятерка с минусом – минус за то, что главному герою хотелось пощечин надовать и наорать на него иногда.»
         </>)
     },
 ]
+
+const ReviewItem: FC<{ item: typeof reviews[number] }> = ({ item }) => {
+    const [content, setContent] = useState(item.descr);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const handleClick = useCallback(() => {
+        if (item.content) {
+            setContent(isOpen ? item.descr : item.content);
+            setIsOpen(!isOpen);
+        }
+    }, [isOpen, item.content, item.descr])
+
+    return (
+        <div className={styles.review}>
+            <h3 className={styles.review__name}>{item.name}</h3>
+            <div className={styles.review__descr}>
+                <>{content}</>
+                {item.content ? (
+                    <button
+                        className={styles.review__moreBtn}
+                        onClick={handleClick}
+                    >{isOpen ? 'Свернуть' : 'Развернуть'}</button>
+                ) : null}
+            </div>
+            <i className={`${styles.quot} ${styles.quot_top}`}>
+                <QuotIcon fill="#fff" />
+            </i>
+            <i className={`${styles.quot} ${styles.quot_bottom}`}>
+                <QuotIcon fill="#fff" />
+            </i>
+        </div>
+    )
+}
 
 export const AppleReviews = () => {
     return (
         <div className={styles.screen}>
             <div className={styles.wrap}>
                 {reviews.map((item, i) => (
-                    <div className={styles.review} key={`ap_review-${i}`}>
-                        <h3 className={styles.review__name}>{item.name}</h3>
-                        <div className={styles.review__descr}>
-                            {item.descr}
-                            <button className={styles.review__moreBtn}>more</button>
-                        </div>
-                        <i className={`${styles.quot} ${styles.quot_top}`}>
-                            <QuotIcon fill="#fff" />
-                        </i>
-                        <i className={`${styles.quot} ${styles.quot_bottom}`}>
-                            <QuotIcon fill="#fff" />
-                        </i>
-                    </div>
+                    <ReviewItem item={item} key={`ap_review-${i}`} />
                 ))}
             </div>
         </div>

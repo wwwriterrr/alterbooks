@@ -1,9 +1,9 @@
-.screen{
+.screen {
     position: relative;
     margin: 60px 0 0 0;
 }
 
-.wrap{
+.wrap {
     position: relative;
     width: var(--wrap-size);
     margin: 0 auto;
@@ -12,9 +12,9 @@
     gap: 20px;
 }
 
-.review{
+.review {
     position: relative;
-    padding: 80px 40px;
+    padding: 50px 40px;
     background-color: #687684;
     color: #fff;
     border-radius: 20px;
@@ -23,22 +23,27 @@
     cursor: pointer;
 }
 
-.review__name{
+.review__name {
     position: relative;
     z-index: 2;
     margin: 0 0 30px 0;
 }
 
-.review__descr{
+.review__descr {
     position: relative;
     z-index: 2;
 }
 
-.review__descr .review__moreBtn{
-    display: none;
+.review__moreBtn {
+    position: relative;
+    display: flex;
+    margin: 30px 0 0 0;
+    padding: 8px 32px;
+    border-radius: 8px;
+    background-color: #56616c;
 }
 
-.quot{
+.quot {
     position: absolute;
     z-index: 1;
     display: flex;
@@ -46,19 +51,13 @@
     justify-content: center;
 }
 
-.quot_top{
+.quot_top {
     left: 40px;
     top: -24px;
 }
 
-.quot_bottom{
+.quot_bottom {
     right: 40px;
     bottom: -24px;
     transform: rotate(180deg);
-}
-
-@container (height > 300px) {
-    .review__descr .review__moreBtn{
-        display: block;
-    }
 }
