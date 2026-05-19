@@ -2,13 +2,16 @@ import { type FC } from 'react';
 import img1 from '../../../../assets/books/appleland/a1.jpg';
 import img2 from '../../../../assets/books/appleland/a2.jpg';
 import img3 from '../../../../assets/books/appleland/a3.jpg';
+import img4 from '../../../../assets/books/appleland/a4.jpg';
+import img5 from '../../../../assets/books/appleland/a5.jpg';
+import img6 from '../../../../assets/books/appleland/a6.png';
 import {motion} from 'motion/react';
 import styles from './styles.module.css';
 
 export const AppleArtsList: FC = () => {
     return (
         <div className={styles.arts}>
-            {[img1, img2, img3].map((item, i) => (
+            {[img1, img2, img3, img4, img5, img6].map((item, i) => (
                 <motion.img
                     className={styles.art}
                     src={item}
