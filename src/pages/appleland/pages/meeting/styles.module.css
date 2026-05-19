@@ -1,0 +1,16 @@
+.page{
+    position: relative;
+    width: var(--wrap-size);
+    margin: 100px auto 0 auto;
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.page p{
+    margin: 0 0 20px 0;
+}
+
+.page p:last-child{
+    margin-bottom: 0;
+}

@@ -11,6 +11,7 @@ import { AppleCritiquePage } from "./pages/appleland/pages/critique";
 import { Provider } from 'react-redux';
 import { store } from "./services/store";
 import { ModalHOC } from "./HOC/modal";
+import { AppleMeetingPage } from "./pages/appleland/pages/meeting";
 
 const getAnimationKey = (pathname: string): string => {
     // Для всех роутов appleland возвращаем один ключ
@@ -37,6 +38,7 @@ const AnimatedRoutes: FC = () => {
                     <Route path="arts" element={<AppleArtsPage />} />
                     <Route path="reviews" element={<AppleReviewsPage />} />
                     <Route path="critique" element={<AppleCritiquePage />} />
+                    <Route path="meeting" element={<AppleMeetingPage />} />
                 </Route>
                 <Route path="*" element={<div>404</div>} />
             </Routes>

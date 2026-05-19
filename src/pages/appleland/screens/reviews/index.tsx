@@ -32,7 +32,10 @@ export const AppleReviews = () => {
                 {reviews.map((item, i) => (
                     <div className={styles.review} key={`ap_review-${i}`}>
                         <h3 className={styles.review__name}>{item.name}</h3>
-                        <div className={styles.review__rescr}>{item.descr}</div>
+                        <div className={styles.review__descr}>
+                            {item.descr}
+                            <button className={styles.review__moreBtn}>more</button>
+                        </div>
                         <i className={`${styles.quot} ${styles.quot_top}`}>
                             <QuotIcon fill="#fff" />
                         </i>

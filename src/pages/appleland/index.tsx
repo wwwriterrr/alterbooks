@@ -70,7 +70,7 @@ export const AppleIndex = () => {
 }
 
 let navItems: TNavItem[] = [
-    { label: (<>Знакомство<br />с книгой</>), url: '/appleland/' },
+    { label: (<>Знакомство<br />с книгой</>), url: '/appleland/meeting/' },
     { label: 'Арты', url: '/appleland/arts/' },
     { 
         label: 'Отзывы', 

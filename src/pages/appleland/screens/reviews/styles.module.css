@@ -34,6 +34,10 @@
     z-index: 2;
 }
 
+.review__descr .review__moreBtn{
+    display: none;
+}
+
 .quot{
     position: absolute;
     z-index: 1;
@@ -51,4 +55,10 @@
     right: 40px;
     bottom: -24px;
     transform: rotate(180deg);
+}
+
+@container (height > 300px) {
+    .review__descr .review__moreBtn{
+        display: block;
+    }
 }
